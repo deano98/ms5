@@ -1,0 +1,18 @@
+nav {
+    background-color: #0063C0;
+}
+
+body {
+    background: url('/media/images/hero-image-min.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.hero {
+    height: 400px;
+    color: white;
+}
+
+.welcome {
+    height: 300px;
+    background-color: #0063C0;
+}
