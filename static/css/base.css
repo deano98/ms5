@@ -8,12 +8,35 @@ body {
 }
 
 .hero {
-    height: 400px;
+    height: 600px;
     color: white;
+}
+
+.site-header {
+    padding-top: 30px;
+    padding-bottom: 60px;
 }
 
 .welcome {
     height: 100%;
     background-color: #0063C0;
     color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.shop {
+    height: 100%;
+    background-color: white;
+    color: #0063C0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.subscription {
+    height: 100%;
+    background-color: #0063C0;
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
