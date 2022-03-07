@@ -40,3 +40,13 @@ body {
     padding-top: 30px;
     padding-bottom: 30px;
 }
+
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
