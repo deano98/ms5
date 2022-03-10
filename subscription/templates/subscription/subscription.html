@@ -33,7 +33,11 @@
             </div>
         </div>
         <div class="container">
-          {{ tdee_form | crispy }}
+          <form action="" method="POST">
+            {{ tdee_form | crispy }}
+            {% csrf_token %}
+            <button class="btn btn-primary" type="submit">Calculate</button>
+          </form>
         </div>
     </div>
 
