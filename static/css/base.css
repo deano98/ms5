@@ -50,3 +50,7 @@ body {
 	background: white;
 	z-index: -1;
 }
+
+.sub-plans {
+    padding-top: 100px;
+}

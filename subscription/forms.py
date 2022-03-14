@@ -25,4 +25,3 @@ class TdeeForm(forms.Form):
         widget=forms.Select,
         choices=ACTIVITY_CHOICES,
     )
-    body_fat = forms.IntegerField(required=False)
