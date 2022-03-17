@@ -1,11 +1,12 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
 class SubType(models.Model):
     name = models.CharField(max_length=254)
     price = models.IntegerField()
+    sub_status = models.BooleanField(default=False, null=True)
 
     def __str__(self):
         return self.name
@@ -17,13 +18,6 @@ class SubFeatures(models.Model):
     def __str__(self):
         return self.plan_name
 
-class UserProfile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    gender = models.CharField(max_length=10)
-    weight = models.IntegerField()
-    height = models.IntegerField()
-    age = models.IntegerField()
-    user_tdee = models.IntegerField()
-
-    def __str__(self):
-        return self.user
+class CustomUser(AbstractUser):
+    customer = models.ForeignKey('djstripe.Customer', null=True, blank=True, on_delete=models.SET_NULL)
+    subscription = models.ForeignKey('djstripe.Subscription', null=True, blank=True, on_delete=models.SET_NULL)

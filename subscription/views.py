@@ -2,6 +2,9 @@ from django.shortcuts import render
 from .models import SubType, SubFeatures
 from .forms import TdeeForm
 from django.views.generic.edit import View
+import stripe
+from djstripe.models import Product
+
 
 # Create your views here.
 
@@ -41,5 +44,10 @@ def subscription(request):
 
     return render(request, 'subscription/subscription.html', {
         'tdee_form': TdeeForm(),
+        'products': Product.objects.all()
     })
 
+def subscribe(request):
+    ''' View to return the subscribe page '''
+    
+    return render(request, 'subscription/subscribe.html')
