@@ -5,24 +5,19 @@
     <div class="overlay"></div>
     <div class="container shop-products">
         <div class="row">
-            {% for product in products %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card" style="width: 18rem;">
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img src="{{ product.image }}" class="card-img-top" alt="...">
-                        </a>
+                        <img src="{{ product.image }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{ product.name }}</h5>
                             <p class="card-text">{{ product.price }}</p>
+                            <p class="card-text">{{ product.description }}</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>  
                 </div>
-            {% endfor %}
         </div>      
     </div>
-
-    <a class="button" href="{% url 'view_bag' %}">View Bag</a>
     
 
 {% endblock %}
-

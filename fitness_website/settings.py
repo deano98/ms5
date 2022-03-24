@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'djstripe',
     'custom_account',
+    'bag',
 ]
 
 MIDDLEWARE = [
