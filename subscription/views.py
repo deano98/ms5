@@ -4,6 +4,9 @@ from .forms import TdeeForm
 from django.views.generic.edit import View
 import stripe
 from djstripe.models import Product
+import os
+from flask import Flask, redirect, jsonify, json, request, current_app
+from django.conf import settings
 
 
 # Create your views here.
@@ -50,4 +53,26 @@ def subscription(request):
 def subscribe(request):
     ''' View to return the subscribe page '''
     
-    return render(request, 'subscription/subscribe.html')
+    return render(request, 'subscription/checkout.html', {
+        'stripe_public_key': 'pk_test_51KPpqoJAp5w3wtxOcLHWfFgiHHtZGpp0tNj4ecSzSQSWJiCZoKIZxcLN06mdCEFAMRyTuIu9qVDaXH0NMxF1Yur1009lNv4heh',
+        'client_secret': 'test client secret',
+    })
+
+# stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
+
+# class CreateCheckoutSession(View):
+#     ''' Checkout session view'''
+#     def post(self, request, *args, **kwargs):
+#         ''' post function '''
+#         price_id = '{{PRICE_ID}}'
+
+#         session = stripe.checkout.Session.create(
+#         success_url='https://example.com/success.html?session_id={CHECKOUT_SESSION_ID}',
+#         cancel_url='https://example.com/canceled.html',
+#         mode='subscription',
+#         line_items=[{
+#             'price': price_id,
+#             # For metered billing, do not pass quantity
+#             'quantity': 1
+#         }],
+#         )
