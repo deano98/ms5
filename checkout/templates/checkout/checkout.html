@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container shop-products">
+        <div class="row">
+                <div class="col">
+                    <h2>Checkout</h2>  
+                </div>
+        </div>
+        
+        <div class="row">
+            <div class="col">
+                Order Summary #
+                <p>Fill out form below to complete order</p>
+                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+                    {{ order_form | crispy }}
+
+                <div id="card-element"></div>
+                <div id="card-errors"></div>
+
+                <div class="">
+                    <a href="{% url 'view_bag' %}">
+                        <button>Adjust Bag</button>
+                    </a>
+                    <button id="submit-button">Complete Order</button>
+                    <p>Your card will be charged £{{ grand_total|floatformat:2 }}</p>
+                </div>
+                </form>
+            </div>
+                
+        </div>
+    </div>
+    
+
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{% endblock %}

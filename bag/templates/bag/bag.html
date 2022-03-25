@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static }
+{% load static %}
 
 {% block content %}
     <div class="overlay"></div>
@@ -24,16 +24,22 @@
                         Delivery: £{{ delivery|floatformat:2 }}
                         Grand Total: £{{ grand_total|floatformat:2 }}
                         {% if free_delivery_delta > 0 %}
-                                        <p class="mb-1 text-danger">
-                                            You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
-                                        </p>
-                                    {% endif %}
-                        Keep Shopping
-                        Secure Checkout
+                            <p class="mb-1 text-danger">
+                                You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
+                            </p>
+                        {% endif %}
+                        <a href="{% url 'shop' %}">
+                            <button>Keep Shopping</button>
+                        </a>
+                        <a href="{% url 'checkout' %}">
+                            <button>Secure Checkout</button>
+                        </a>
                     </div>
                 {% else %}
                     <p>Your bag is empty</p>
-                    <a href="{% url 'shop' %}">Keep Shopping</a>
+                    <a href="{% url 'shop' %}">
+                        <button>Keep Shopping</button>
+                    </a>
             </div>
                 {% endif %}
         </div>
