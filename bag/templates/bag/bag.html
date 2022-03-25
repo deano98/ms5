@@ -5,18 +5,23 @@
     <div class="overlay"></div>
     <div class="container shop-products">
         <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="{{ product.image }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ product.name }}</h5>
-                            <p class="card-text">{{ product.price }}</p>
-                            <p class="card-text">{{ product.description }}</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>  
+                <div class="col">
+                    <h2>Shopping Bag</h2>  
                 </div>
-        </div>      
+        </div>
+        
+        <div class="row">
+            <div class="col">
+                {% if bag_items %}
+                    <div>
+
+                    </div>
+                {% else %}
+                    <p>Your bag is empty</p>
+                    <a href="{% url 'shop' %}">Keep Shopping</a>
+            </div>
+                {% endif %}
+        </div>
     </div>
     
 
