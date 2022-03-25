@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'djstripe',
     'custom_account',
     'bag',
+    'checkout',
 ]
 
 MIDDLEWARE = [
