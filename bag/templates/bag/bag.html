@@ -14,7 +14,22 @@
             <div class="col">
                 {% if bag_items %}
                     <div>
+                        {% for item in bag_items %}
+                            {{ item.product.name }}
+                            {{ item.quantity }}
+                            {{ item.product.price }}
+                        {% endfor %}
 
+                        Bag Total: £{{ total|floatformat:2 }}
+                        Delivery: £{{ delivery|floatformat:2 }}
+                        Grand Total: £{{ grand_total|floatformat:2 }}
+                        {% if free_delivery_delta > 0 %}
+                                        <p class="mb-1 text-danger">
+                                            You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
+                                        </p>
+                                    {% endif %}
+                        Keep Shopping
+                        Secure Checkout
                     </div>
                 {% else %}
                     <p>Your bag is empty</p>
